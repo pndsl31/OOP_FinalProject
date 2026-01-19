@@ -1,0 +1,14 @@
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.AssemblyInfoInputs.cache
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.AssemblyInfo.cs
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.csproj.CoreCompileInputs.cache
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/bin/Debug/net10.0/OOP_FinalProject
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/bin/Debug/net10.0/OOP_FinalProject.deps.json
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/bin/Debug/net10.0/OOP_FinalProject.runtimeconfig.json
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/bin/Debug/net10.0/OOP_FinalProject.dll
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/bin/Debug/net10.0/OOP_FinalProject.pdb
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.dll
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/refint/OOP_FinalProject.dll
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.pdb
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.genruntimeconfig.cache
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/ref/OOP_FinalProject.dll
