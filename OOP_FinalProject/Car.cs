@@ -48,10 +48,6 @@ namespace CarRentalSystem
         {
             return _licensePlate + " - " + _manufacturer + " " + _model + " (" + _year + ")";
         }
-
-        public bool CanBeRented()
-        {
-            return _status == "Available";
-        }
+        
     }
 }

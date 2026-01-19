@@ -120,26 +120,22 @@ namespace CarRentalSystem
                 Console.ReadKey();
                 return;
             }
-
-            if (car.CanBeRented() == false)
-            {
-                Console.WriteLine("Car is not available for rent! Current status: " + car.getStatus());
-                Console.ReadKey();
-                return;
-            }
+            
 
             Console.Write("Enter customer name: ");
             string name = Console.ReadLine();
-            Console.Write("Enter date of start (yyyy-mm-dd): ");
+            Console.Write("Enter start date of rental (format: yyyy-mm-dd): ");
             string startDate = Console.ReadLine();
-            Console.Write("Enter date of end (yyyy-mm-dd): ");
+            Console.Write("Enter end date of rental (format: yyyy-mm-dd): ");
             string endDate = Console.ReadLine();
 
             Rental rental = _rentalManager.CreateRental(plate, name, startDate, endDate, car.getDailyRate());
             car.setStatus("Rented");
-            _carManager.SaveCars(); // Save immediately
+            _carManager.SaveCars(); 
             rental.writeReceiptToFile();
             rental.writeRentalSlipToFile();
+            rental.printReceipt();
+            rental.printRentalSlip();
             Console.WriteLine("\nRental confirmed! Press any key to continue...");
             Console.ReadKey();
         }
@@ -153,7 +149,6 @@ namespace CarRentalSystem
             Console.Write("\nEnter plate number of car to return: ");
             string plate = Console.ReadLine();
             
-            // Check if car is actually rented
             if (!_rentalManager.IsCarRented(plate))
             {
                 Console.WriteLine("This car is not currently rented!");
@@ -161,28 +156,24 @@ namespace CarRentalSystem
                 return;
             }
             
-            // Mark rental as returned
             bool returned = _rentalManager.ReturnCar(plate);
             
             if (returned)
             {
-                Console.WriteLine("Car returned successfully!");
+                Console.WriteLine("Car returned.");
                 
-                // Ask about maintenance needed
-                Console.WriteLine("Does this car need maintenance? yes or no?: ");
+                Console.Write("Does this car need maintenance? y/n: ");
                 string needsMaintenance = Console.ReadLine().ToUpper();
                 
                 if (needsMaintenance == "Y")
                 {
-                    Console.Write("Enter maintenance needed: ");
+                    Console.Write("Enter maintenance service: ");
                     string description = Console.ReadLine();
                     Console.Write("Enter mechanic name for maintenance: ");
                     string mechanic = Console.ReadLine();
                     
-                    // Create maintenance record
                     _maintenanceManager.AddRecord(plate, mechanic, description);
                     
-                    // IMPORTANT: Set car status to "Maintenance"
                     Car car = _carManager.FindCar(plate);
                     if (car != null)
                     {
@@ -207,7 +198,7 @@ namespace CarRentalSystem
                 Console.WriteLine("Failed to return car!");
             }
             
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press a key to continue...");
             Console.ReadKey();
         }
 
@@ -230,7 +221,7 @@ namespace CarRentalSystem
             
             if (car.getStatus() == "Rented")
             {
-                Console.WriteLine("Cannot schedule maintenance for a rented car!");
+                Console.WriteLine("Car is rented. Currently cannot schedule for maintenance!");
                 Console.ReadKey();
                 return;
             }
@@ -242,17 +233,17 @@ namespace CarRentalSystem
                 return;
             }
 
-            Console.Write("Enter mechanic name who will perform the maintenance: ");
+            Console.Write("Enter mechanic name who will do the maintenance: ");
             string mechanic = Console.ReadLine();
 
-            Console.Write("Enter maintenance work to be done: ");
+            Console.Write("Enter maintenance service to be done: ");
             string description = Console.ReadLine();
 
             _maintenanceManager.AddRecord(plate, mechanic, description);
             car.setStatus("Maintenance");
             _carManager.SaveCars(); 
             Console.WriteLine("Maintenance scheduled! Car status set to Maintenance.");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press a key to continue...");
             Console.ReadKey();
         }
 
@@ -271,11 +262,11 @@ namespace CarRentalSystem
                 return;
             }
 
-            Console.WriteLine("\nEnter maintenance record ID to mark as completed: ");
+            Console.Write("\nEnter maintenance record ID to mark as completed: ");
             string recordId = Console.ReadLine();
-            Console.Write("Who completed the work? (mechanic name): ");
+            Console.Write("Who completed the work?: ");
             string mechanicCompleted = Console.ReadLine();
-            Console.Write("What was actually done? (work completed): ");
+            Console.Write("What was actually done?: ");
             string workCompleted = Console.ReadLine();
 
             bool completed = _maintenanceManager.CompleteMaintenance(recordId, mechanicCompleted, workCompleted);
@@ -296,10 +287,10 @@ namespace CarRentalSystem
             }
             else
             {
-                Console.WriteLine("Record not found or already completed!");
+                Console.WriteLine("Record not found or already completed.");
             }
 
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press a key to continue...");
             Console.ReadKey();
         }
 

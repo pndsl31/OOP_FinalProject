@@ -80,7 +80,7 @@ namespace CarRentalSystem
             string fileName = $"{_rentalId}_Receipt.txt";
             string filePath = Path.Combine(receiptsFolder, fileName);
 
-            string receiptContent = "== RENTAL RECEIPT ===\n" +
+            string receiptContent = "===== RENTAL RECEIPT =====\n" +
                                    "Rental ID: " + _rentalId + "\n" +
                                    "Date: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\n" +
                                    "Customer: " + _customerName + "\n" +
@@ -88,7 +88,7 @@ namespace CarRentalSystem
                                    "Period: " + _startDate + " to " + _endDate + "\n" +
                                    "Total Cost: $" + _totalCost + "\n" +
                                    "Thank you!\n" +
-                                   "==========================";
+                                   "============================";
 
             File.WriteAllText(filePath, receiptContent);
             Console.WriteLine($"Receipt saved to: {filePath}");
@@ -110,13 +110,13 @@ namespace CarRentalSystem
             string fileName = $"{_rentalId}_Slip.txt";
             string filePath = Path.Combine(slipsFolder, fileName);
 
-            string slipContent = "== RENTAL SLIP ===\n" +
+            string slipContent = "===== RENTAL SLIP =====\n" +
                                 "Rental ID: " + _rentalId + "\n" +
                                 "Customer: " + _customerName + "\n" +
                                 "Vehicle: " + _licensePlate + "\n" +
                                 "Pick-up Date: " + _startDate + "\n" +
                                 "Return Date: " + _endDate + "\n" +
-                                "========================================";
+                                "==========================";
 
             File.WriteAllText(filePath, slipContent);
             Console.WriteLine($"Rental slip saved to: {filePath}");
@@ -127,7 +127,7 @@ namespace CarRentalSystem
         /// </summary>
         public void printReceipt()
         {
-            Console.WriteLine("\n== RENTAL RECEIPT ===");
+            Console.WriteLine("\n==== RENTAL RECEIPT =====");
             Console.WriteLine("Rental ID: " + _rentalId);
             Console.WriteLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
             Console.WriteLine("Customer: " + _customerName);
@@ -143,13 +143,13 @@ namespace CarRentalSystem
         /// </summary>
         public void printRentalSlip()
         {
-            Console.WriteLine("\n== RENTAL SLIP ===");
+            Console.WriteLine("\n===== RENTAL SLIP =====");
             Console.WriteLine("Rental ID: " + _rentalId);
             Console.WriteLine("Customer: " + _customerName);
             Console.WriteLine("Vehicle: " + _licensePlate);
             Console.WriteLine("Pick-up Date: " + _startDate);
             Console.WriteLine("Return Date: " + _endDate);
-            Console.WriteLine("========================================");
+            Console.WriteLine("==========================");
         }
     }
 }

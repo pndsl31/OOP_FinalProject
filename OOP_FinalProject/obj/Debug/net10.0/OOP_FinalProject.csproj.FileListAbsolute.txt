@@ -12,3 +12,4 @@
 /Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.pdb
 /Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.genruntimeconfig.cache
 /Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/ref/OOP_FinalProject.dll
+/Users/robertbayan/RiderProjects/OOP_FinalProject/OOP_FinalProject/obj/Debug/net10.0/OOP_FinalProject.sourcelink.json
