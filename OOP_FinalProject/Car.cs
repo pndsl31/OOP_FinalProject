@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,5 @@ namespace CarRentalSystem
         {
             return _licensePlate + " - " + _manufacturer + " " + _model + " (" + _year + ")";
         }
-        
     }
 }

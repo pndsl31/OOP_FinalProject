@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,8 @@ namespace CarRentalSystem
 
             if (car == null)
             {
+                
+                
                 Console.WriteLine("Car is not found!");
                 Console.ReadKey();
                 return;
@@ -161,6 +164,8 @@ namespace CarRentalSystem
             if (returned)
             {
                 Console.WriteLine("Car returned.");
+
+                Console.WriteLine("Checking Car Condition.......");
                 
                 Console.Write("Does this car need maintenance? y/n: ");
                 string needsMaintenance = Console.ReadLine().ToUpper();

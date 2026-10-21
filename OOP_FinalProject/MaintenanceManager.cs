@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,12 +43,11 @@ namespace CarRentalSystem
                 if (parts.Length >= 9)
                 {
                     MaintenanceRecord record = new MaintenanceRecord(
-                        parts[1].Trim(),  // LicensePlate
-                        parts[2].Trim(),  // MechanicScheduled
-                        parts[3].Trim()   // WorkScheduled
+                        parts[1].Trim(),  
+                        parts[2].Trim(),  
+                        parts[3].Trim()   
                     );
-
-                    // Load completion info if exists
+                    
                     if (bool.Parse(parts[5].Trim()))
                     {
                         record.setCompleted(true, parts[7].Trim(), parts[8].Trim());
@@ -93,7 +93,7 @@ namespace CarRentalSystem
         {
             MaintenanceRecord record = new MaintenanceRecord(licensePlate, mechanic, description);
             _records.Add(record);
-            SaveRecords(); // Save immediately
+            SaveRecords(); 
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace CarRentalSystem
                 if (record.getRecordId() == recordId && record.getCompleted() == false)
                 {
                     record.setCompleted(true, mechanicCompleted, workCompleted);
-                    SaveRecords(); // Save immediately
+                    SaveRecords(); 
                     return true;
                 }
             }

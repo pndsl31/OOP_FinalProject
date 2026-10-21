@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,18 @@ namespace CarRentalSystem
         private bool _debugger = false;
 
         /// <summary>
-        /// initializes a new carmanager instance
+        /// Creates sample car data for initial system setup
+        /// </summary>
+        private void givenCars()
+        {
+            _cars.Add(new Car("ABC123", "Toyota", "Vios", 2022, 2500));
+            _cars.Add(new Car("DEF456", "Honda", "Civic", 2023, 3500));
+            _cars.Add(new Car("GHI789", "Ford", "Mustang", 2021, 6000));
+            _cars.Add(new Car("JKL012", "Chevrolet", "Camaro", 2023, 6500));
+        }
+        
+        /// <summary>
+        /// initializes a new CarManager instance
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="debugger"></param>
@@ -36,7 +48,7 @@ namespace CarRentalSystem
         {
             if (File.Exists(_filePath) == false)
             {
-                CreateSampleCars();
+                givenCars();
                 SaveCars();
                 return;
             }
@@ -49,13 +61,8 @@ namespace CarRentalSystem
                 string[] parts = lines[x].Split(',');
                 if (parts.Length >= 6)
                 {
-                    Car car = new Car(
-                        parts[0].Trim(),
-                        parts[1].Trim(),
-                        parts[2].Trim(),
-                        int.Parse(parts[3].Trim()),
-                        decimal.Parse(parts[4].Trim())
-                    );
+                    Car car = new Car(parts[0].Trim(), parts[1].Trim(), parts[2].Trim(),
+                        int.Parse(parts[3].Trim()), decimal.Parse(parts[4].Trim()));
                     car.setStatus(parts[5].Trim());
                     _cars.Add(car);
                 }
@@ -95,17 +102,7 @@ namespace CarRentalSystem
             if (_debugger)
                 Console.WriteLine("Saved " + _cars.Count + " cars to file.");
         }
-
-        /// <summary>
-        /// Creates sample car data for initial system setup
-        /// </summary>
-        private void CreateSampleCars()
-        {
-            _cars.Add(new Car("ABC123", "Toyota", "Vios", 2022, 2500));
-            _cars.Add(new Car("DEF456", "Honda", "Civic", 2023, 3500));
-            _cars.Add(new Car("GHI789", "Ford", "Mustang", 2021, 6000));
-            _cars.Add(new Car("JKL012", "Chevrolet", "Camaro", 2023, 6500));
-        }
+        
 
         /// <summary>
         /// finds the car by its plate number
